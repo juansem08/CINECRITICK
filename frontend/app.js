@@ -6,14 +6,8 @@
 (function(){
   "use strict";
 
-  // Configuración dinámica del Backend.
-  // En local usará http://127.0.0.1:7071. En Vercel usará la URL de Railway.
-  // Tip para el estudiante: puedes cambiar esta URL por la tuya de Railway, o guardarla en la consola con:
-  // localStorage.setItem("CineCritik_API_BASE", "https://tu-app-railway.up.railway.app")
+  // Configuración del Backend (Local).
   var API_BASE = "http://127.0.0.1:7071";
-  if (window.location.hostname !== "127.0.0.1" && window.location.hostname !== "localhost") {
-    API_BASE = localStorage.getItem("CineCritik_API_BASE") || "https://cinecritick-production.up.railway.app";
-  }
 
   var _origFetch = window.fetch;
   window.fetch = function(url, options) {
