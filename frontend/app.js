@@ -12,7 +12,7 @@
   // localStorage.setItem("CineCritik_API_BASE", "https://tu-app-railway.up.railway.app")
   var API_BASE = "http://127.0.0.1:7071";
   if (window.location.hostname !== "127.0.0.1" && window.location.hostname !== "localhost") {
-    API_BASE = localStorage.getItem("CineCritik_API_BASE") || "https://tu-backend-railway.up.railway.app";
+    API_BASE = localStorage.getItem("CineCritik_API_BASE") || "https://cinecritick-production.up.railway.app";
   }
 
   var _origFetch = window.fetch;
