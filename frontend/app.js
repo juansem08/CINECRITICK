@@ -1186,8 +1186,13 @@
           if (idToSave) saveImagePrefs(idToSave, fit, focus);
 
           resetUploadForm();
-          setView(viewGaleria);
-          renderGallery();
+          if (editSourceView === viewMyList) {
+            setView(viewMyList);
+            renderMyList();
+          } else {
+            setView(viewGaleria);
+            renderGallery();
+          }
         }
       }catch(_){
         flashGlitch();
@@ -1762,7 +1767,14 @@
     }
   }
 
+  var editSourceView = null;
+
   function startEdit(item){
+    var currentActive = [viewLogin, viewUserRegister, viewDash, viewRegistro, viewGaleria, viewForo, viewMyList].find(function(v){
+      return v && v.classList.contains("view--active");
+    });
+    editSourceView = currentActive || viewGaleria;
+
     editMode.id = Number(item.id || 0);
     editMode.original = item;
     if (regTipo) regTipo.value = item.tipo || "Pelicula";
@@ -1798,7 +1810,11 @@
       await apiEliminar(Number(item.id || 0));
       flashGlitch();
       showToast("¡Título eliminado del catálogo!");
-      await renderGallery();
+      if (viewMyList && viewMyList.classList.contains("view--active")) {
+        await renderMyList();
+      } else {
+        await renderGallery();
+      }
     }catch(err){
       flashGlitch();
       alert("No se pudo eliminar: " + (err && err.message ? err.message : "error"));
