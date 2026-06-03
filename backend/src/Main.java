@@ -69,7 +69,7 @@ public class Main {
         new CriticoExperto("Aleja")
     };
 
-    HttpServer server = HttpServer.create(new InetSocketAddress("127.0.0.1", PORT), 0);
+    HttpServer server = HttpServer.create(new InetSocketAddress("0.0.0.0", PORT), 0);
 
     Path webRootTmp = Paths.get("..", "frontend").toAbsolutePath().normalize();
     if (!Files.exists(webRootTmp)) {
