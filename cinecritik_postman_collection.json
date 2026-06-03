@@ -54,7 +54,7 @@
             ],
             "type": "text/javascript"
           }
-        ]
+        }
       ],
       "request": {
         "method": "POST",
