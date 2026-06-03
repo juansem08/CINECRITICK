@@ -196,71 +196,24 @@
     } catch(e) {}
   }
   async function apiListGet() {
-    try {
-      var res = await fetch("/api/lista", { headers: authHeaders() });
-      if (res.ok) {
-        var data = await res.json();
-        return data.ids || [];
-      }
-      if (res.status === 404) return getMyList();
-    } catch(e) {
-      return getMyList();
-    }
     return getMyList();
   }
   async function apiListAdd(id) {
-    try {
-      var res = await fetch("/api/lista/agregar", {
-        method: "POST",
-        headers: Object.assign({ "Content-Type": "application/json" }, authHeaders()),
-        body: JSON.stringify({ tituloId: Number(id) })
-      });
-      if (res.ok) return true;
-      if (res.status === 404) {
-        var list = getMyList();
-        if (list.indexOf(Number(id)) === -1) {
-          list.push(Number(id));
-          setMyList(list);
-        }
-        return true;
-      }
-    } catch(e) {
-      var list = getMyList();
-      if (list.indexOf(Number(id)) === -1) {
-        list.push(Number(id));
-        setMyList(list);
-      }
-      return true;
+    var list = getMyList();
+    if (list.indexOf(Number(id)) === -1) {
+      list.push(Number(id));
+      setMyList(list);
     }
-    return false;
+    return true;
   }
   async function apiListRemove(id) {
-    try {
-      var res = await fetch("/api/lista/eliminar", {
-        method: "DELETE",
-        headers: Object.assign({ "Content-Type": "application/json" }, authHeaders()),
-        body: JSON.stringify({ id: Number(id) })
-      });
-      if (res.ok) return true;
-      if (res.status === 404) {
-        var list = getMyList();
-        var idx = list.indexOf(Number(id));
-        if (idx !== -1) {
-          list.splice(idx, 1);
-          setMyList(list);
-        }
-        return true;
-      }
-    } catch(e) {
-      var list = getMyList();
-      var idx = list.indexOf(Number(id));
-      if (idx !== -1) {
-        list.splice(idx, 1);
-        setMyList(list);
-      }
-      return true;
+    var list = getMyList();
+    var idx = list.indexOf(Number(id));
+    if (idx !== -1) {
+      list.splice(idx, 1);
+      setMyList(list);
     }
-    return false;
+    return true;
   }
 
   /* ================= CORRECCIÓN 1: RENDER TOP 10 CON NÚMEROS SUPERPUESTOS ================= */
