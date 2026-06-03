@@ -1,0 +1,21 @@
+# Compiled class files — never track these
+backend/out/
+*.class
+
+# Exercise compiled files
+Animal/*.class
+Person/*.class
+shape/*.class
+circle/*.class
+
+# Spring Boot build output
+spring-demo/target/
+
+# SQLite database (regenerates automatically)
+data/cinecritik.db
+
+# Users file (regenerates automatically)
+users.txt
+
+# VS Code local settings (optional, keeps repo clean)
+.vscode/
