@@ -16,6 +16,9 @@ Incluye demo adicional con **Spring Boot + MongoDB Atlas**.
 ## Vista de contexto
 <img width="1010" height="458" alt="Captura de pantalla 2026-06-03 111738" src="https://github.com/user-attachments/assets/dfffe75a-d1ea-4995-b058-1c460db535c6" />
 <img width="1632" height="616" alt="Captura de pantalla 2026-06-03 110804" src="https://github.com/user-attachments/assets/c100a015-dedf-4746-9ad3-63bfd622957b" />
+
+## Modelo conceptual de clases (Vista lógica)
+
 <img width="1610" height="705" alt="Captura de pantalla 2026-06-03 105948" src="https://github.com/user-attachments/assets/086e7a85-bdde-4a75-b555-74594edb7bfd" />
 
 -----
