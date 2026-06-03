@@ -21,8 +21,24 @@ public class DataStore {
                     "password VARCHAR(255) NOT NULL" +
                     ")");
 
+            boolean needsRecreate = false;
+            try (ResultSet rs = conn.getMetaData().getPrimaryKeys(null, null, "multimedia")) {
+                int count = 0;
+                while (rs.next()) {
+                    count++;
+                }
+                if (count == 1) {
+                    needsRecreate = true;
+                }
+            } catch (Exception e) {
+                // ignore
+            }
+            if (needsRecreate) {
+                stmt.execute("DROP TABLE IF EXISTS multimedia");
+            }
+
             stmt.execute("CREATE TABLE IF NOT EXISTS multimedia (" +
-                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "id INTEGER NOT NULL," +
                     "username VARCHAR(50) NOT NULL," +
                     "tipo VARCHAR(20) NOT NULL," +
                     "titulo VARCHAR(150) NOT NULL," +
@@ -34,6 +50,7 @@ public class DataStore {
                     "duracion_min INTEGER," +
                     "temporadas INTEGER," +
                     "episodios INTEGER," +
+                    "PRIMARY KEY (id, username)," +
                     "FOREIGN KEY (username) REFERENCES usuarios(username)" +
                     ")");
 
