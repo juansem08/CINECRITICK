@@ -9,7 +9,10 @@ Incluye demo adicional con **Spring Boot + MongoDB Atlas**.
 
 ## Diagramas 
 
+## Vista funcional (diagrama de componentes)
+
 <img width="1384" height="499" alt="Captura de pantalla 2026-06-03 103240" src="https://github.com/user-attachments/assets/5872bde2-7199-40f0-ad9a-dab872f2b946" />
+
 <img width="1659" height="217" alt="Captura de pantalla 2026-06-03 102822" src="https://github.com/user-attachments/assets/cc5155ff-a352-4366-8440-45d50b8ebda6" />
 <img width="432" height="551" alt="Captura de pantalla 2026-06-03 115040" src="https://github.com/user-attachments/assets/a4d97016-f125-4cdc-a6a1-e1f2d8b5fd1f" />
 
